@@ -1,0 +1,38 @@
+name: Apply Branch Protections
+
+on:
+  workflow_dispatch:
+
+permissions:
+  administration: write
+
+jobs:
+  protect:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Apply branch protections to main
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh api \
+            --method PUT \
+            repos/${{ github.repository }}/branches/main/protection \
+            --input - <<'EOF'
+          {
+            "required_status_checks": {
+              "strict": true,
+              "contexts": []
+            },
+            "enforce_admins": false,
+            "required_pull_request_reviews": {
+              "dismiss_stale_reviews": false,
+              "require_code_owner_reviews": false,
+              "required_approving_review_count": 1
+            },
+            "restrictions": null,
+            "required_linear_history": true,
+            "allow_force_pushes": false,
+            "allow_deletions": false
+          }
+          EOF
+          echo "Branch protections applied successfully to main."
