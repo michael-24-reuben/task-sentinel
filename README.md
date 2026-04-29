@@ -36,7 +36,13 @@ Run the desktop app:
 npm run dev
 ```
 
-Build the desktop app:
+Build all library packages:
+
+```bash
+npm run build:packages
+```
+
+Build the full project:
 
 ```bash
 npm run build
@@ -47,4 +53,3 @@ npm run build
 - `apps/desktop` contains the initial React + Vite UI scaffold.
 - `packages/*` are reserved for the service and domain modules listed above.
 - `docs/` contains the initial architecture, scope, and security placeholders.
-

@@ -1,0 +1,96 @@
+export const VITALITY = {
+    CORE_OS: 'CORE_OS',
+    SYSTEM_SUPPORT: 'SYSTEM_SUPPORT',
+    USER_LAND: 'USER_LAND',
+} as const;
+
+export type Vitality = (typeof VITALITY)[keyof typeof VITALITY];
+
+export const DOMAIN = {
+    DEV_RUNTIME: 'DEV_RUNTIME',
+    WORKSTATION_TOOLING: 'WORKSTATION_TOOLING',
+    HARDWARE_UTILITY: 'HARDWARE_UTILITY',
+    AGENTIC_AUTOMATION: 'AGENTIC_AUTOMATION',
+    CONNECTIVITY_SYNC: 'CONNECTIVITY_SYNC',
+    EPHEMERAL_TASK: 'EPHEMERAL_TASK',
+    BACKGROUND_SERVICE: 'BACKGROUND_SERVICE',
+    UNKNOWN: 'UNKNOWN',
+} as const;
+
+export type ProcessDomain = (typeof DOMAIN)[keyof typeof DOMAIN];
+
+export const BEHAVIOR_TAG = {
+    // Performance
+    HIGH_RESOURCE_DRAIN: 'HIGH_RESOURCE_DRAIN',
+    NETWORK_HEAVY: 'NETWORK_HEAVY',
+    DISK_HEAVY: 'DISK_HEAVY',
+    GPU_HEAVY: 'GPU_HEAVY',
+    HANDLE_LEAK_SUSPECTED: 'HANDLE_LEAK_SUSPECTED',
+    THREAD_LEAK_SUSPECTED: 'THREAD_LEAK_SUSPECTED',
+
+    // Behavior
+    BLOATWARE: 'BLOATWARE',
+    ORPHANED: 'ORPHANED',
+    GHOST_PROCESS: 'GHOST_PROCESS',
+
+    // Trust / Security
+    UNSIGNED: 'UNSIGNED',
+    SUSPICIOUS_PATH: 'SUSPICIOUS_PATH',
+
+    // User / Policy
+    USER_VERIFIED: 'USER_VERIFIED',
+    PENDING_REVIEW: 'PENDING_REVIEW',
+    POLICY_VIOLATION: 'POLICY_VIOLATION',
+} as const;
+
+
+export type BehaviorTag = (typeof BEHAVIOR_TAG)[keyof typeof BEHAVIOR_TAG];
+
+export const PROCESS_STATE = {
+    RUNNING: 'RUNNING',
+    SLEEPING: 'SLEEPING',
+    STOPPED: 'STOPPED',
+    ZOMBIE: 'ZOMBIE',
+    UNKNOWN: 'UNKNOWN',
+} as const;
+
+export type ProcessState = (typeof PROCESS_STATE)[keyof typeof PROCESS_STATE];
+
+export const DECISION = {
+    IGNORE: 'IGNORE',
+    MONITOR: 'MONITOR',
+    AUTO_KILL: 'AUTO_KILL',
+    WHITELIST: 'WHITELIST',
+    SNOOZE: 'SNOOZE',
+    REQUIRE_CONFIRMATION: 'REQUIRE_CONFIRMATION',
+} as const;
+
+export type UserDecision = (typeof DECISION)[keyof typeof DECISION];
+
+export const CONSTRAINT = {
+    ALWAYS_ACTIVE: 'ALWAYS_ACTIVE',
+    CONTEXTUAL_SAFETY: 'CONTEXTUAL_SAFETY',
+    RESOURCE_CAPPING: 'RESOURCE_CAPPING',
+    TIME_RESTRICTED: 'TIME_RESTRICTED',
+} as const;
+
+export type PolicyConstraint = (typeof CONSTRAINT)[keyof typeof CONSTRAINT];
+
+export const MATCH_TYPE = {
+    EXACT_NAME: 'EXACT_NAME',
+    REGEX: 'REGEX',
+    PATH_PREFIX: 'PATH_PREFIX',
+} as const;
+
+export type PolicyMatchType = (typeof MATCH_TYPE)[keyof typeof MATCH_TYPE];
+
+export const POLICY_ACTION = {
+    ALLOW: 'ALLOW',
+    OBSERVE: 'OBSERVE',
+    NOTIFY: 'NOTIFY',
+    CONFIRM_REQUIRED: 'CONFIRM_REQUIRED',
+    BLOCKED_BY_SAFETY_BOUNDARY: 'BLOCKED_BY_SAFETY_BOUNDARY',
+} as const;
+
+export type PolicyAction = (typeof POLICY_ACTION)[keyof typeof POLICY_ACTION];
+

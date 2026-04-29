@@ -1,0 +1,29 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "ignoreDeprecations": "6.0",
+    "composite": true,
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "types": ["node"],
+    "paths": {
+      "@task-sentinel/shared": ["../../packages/shared/src/index.ts"],
+      "@task-sentinel/collector": ["../../packages/collector/src/index.ts"],
+      "@task-sentinel/classifier": ["../../packages/classifier/src/index.ts"],
+      "@task-sentinel/policy-engine": ["../../packages/policy-engine/src/index.ts"]
+    },
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "outDir": "dist",
+    "rootDir": "src"
+  },
+  "include": ["src"],
+  "references": [
+    { "path": "../../packages/shared" },
+    { "path": "../../packages/collector" },
+    { "path": "../../packages/classifier" },
+    { "path": "../../packages/policy-engine" }
+  ]
+}

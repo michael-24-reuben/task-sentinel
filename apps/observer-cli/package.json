@@ -1,0 +1,37 @@
+{
+  "name": "@task-sentinel/observer-cli",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "bin": {
+    "task-sentinel-observer": "./dist/main.js"
+  },
+  "scripts": {
+    "dev": "tsx src/main.ts",
+    "build": "node ../../node_modules/typescript/bin/tsc -b tsconfig.json",
+    "typecheck": "node ../../node_modules/typescript/bin/tsc -p tsconfig.json --noEmit",
+    "start": "node dist/main.js",
+    "demo": "tsx src/main.ts --demo",
+    "fast": "tsx src/main.ts --fast"
+  },
+  "dependencies": {
+    "@task-sentinel/shared": "file:../../packages/shared",
+    "@task-sentinel/collector": "file:../../packages/collector",
+    "@task-sentinel/classifier": "file:../../packages/classifier",
+    "@task-sentinel/policy-engine": "file:../../packages/policy-engine"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.0",
+    "typescript": "~6.0.2"
+  }
+}
